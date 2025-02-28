@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
@@ -15,95 +15,32 @@ import Tooltip from "@mui/material/Tooltip";
 import PageTitle from "@/components/Common/PageTitle";
 import Image from "next/image";
 import withAuth from "@/components/Common/withAuth";
-
-const contactLists = [
-  {
-    image: "/images/member1.png",
-    name: "Alvarado Turner",
-    designation: "React Developer",
-    phonNumber: "+9003526765",
-    email: "alvarado@gmail.com",
-  },
-  {
-    image: "/images/member2.png",
-    name: "Evangelina Mcclain",
-    designation: "Angular Developer",
-    phonNumber: "+9003526765",
-    email: "evangelina@gmail.com",
-  },
-  {
-    image: "/images/member3.png",
-    name: "Candice Munoz",
-    designation: "Vue Developer",
-    phonNumber: "+9003526766",
-    email: "candice@gmail.com",
-  },
-  {
-    image: "/images/member4.png",
-    name: "Bernard Langley",
-    designation: "UI/UX Designer",
-    phonNumber: "+9003526767",
-    email: "bernard@gmail.com",
-  },
-  {
-    image: "/images/member5.png",
-    name: "Kristie Hall",
-    designation: "Software Analyst",
-    phonNumber: "+9003526846",
-    email: "kristie@gmail.com",
-  },
-  {
-    image: "/images/member6.png",
-    name: "Bolton Obrien",
-    designation: "Support Engineer",
-    phonNumber: "+9003526865",
-    email: "bolton@gmail.com",
-  },
-  {
-    image: "/images/member7.png",
-    name: "Dee Alvarado",
-    designation: "SEO Specialist",
-    phonNumber: "+9003526456",
-    email: "alvarado@gmail.com",
-  },
-  {
-    image: "/images/member8.png",
-    name: "Cervantes Kramer",
-    designation: "Product Designer",
-    phonNumber: "+9003526456",
-    email: "cervantes@gmail.com",
-  },
-  {
-    image: "/images/member9.png",
-    name: "Dejesus Michael",
-    designation: "Content Writer",
-    email: "dejesus@gmail.com",
-    phonNumber: "+9003526456",
-  },
-  {
-    image: "/images/member10.png",
-    name: "Alissa Nelson",
-    designation: "Theme Developer",
-    email: "alissa@gmail.com",
-    phonNumber: "+9003526355",
-  },
-  {
-    image: "/images/member11.png",
-    name: "English Haney",
-    designation: "Digital Marketing Executive",
-    email: "english@gmail.com",
-    phonNumber: "+9003526456",
-  },
-  {
-    image: "/images/member12.png",
-    name: "Edwards Mckenzie",
-    designation: "Support Engineer",
-    email: "edwards@gmail.com",
-    phonNumber: "+9003526456",
-  },
-];
+import { useDispatch, useSelector } from "react-redux";
+import { fetchClientsData } from "@/lib/client/clientSlice";
 
 const Page = () => {
+  const dispatch = useDispatch();
+  const clientsData = useSelector((state) => state.client.clients);
+  const [contactLists, setContactLists] = useState([]);
+
+  useEffect(() => {
+    dispatch(fetchClientsData());
+  }, [dispatch]);
+
+
+  useEffect(() => {
+    if (clientsData?.users?.length > 0) {
+      const formattedClients = clientsData.users.map((client) => ({
+        image: client.image || "/images/member1.png",
+        name: `${client.firstName} ${client.lastName}`,
+        designation: `${client.company.title}`,
+        email: client.email,
+        phoneNumber: client.phone,
+      }));
+      setContactLists(formattedClients);
+    }
+  }, [clientsData]);
+
   return (
     <>
       <PageTitle
@@ -118,7 +55,7 @@ const Page = () => {
         columnSpacing={{ xs: 1, sm: 1, md: 1, lg: 1, xl: 2 }}
       >
         {contactLists.map((contactList) => (
-          <Grid item xs={12} sm={6} md={6} lg={4} xl={3} key={contactList.name}>
+          <Grid item xs={12} sm={6} md={6} lg={4} xl={4} key={contactList.name}>
             <Card
               sx={{
                 textAlign: "center",
@@ -204,8 +141,8 @@ const Page = () => {
                       mb: "3px",
                     }}
                   />
-                  <Typography fontWeight="500" fontSize="13px">
-                    {contactList.phonNumber}
+                  <Typography fontWeight="500" fontSize="14px">
+                    {contactList.phoneNumber}
                   </Typography>
                 </Box>
 
@@ -216,7 +153,7 @@ const Page = () => {
                       mb: "3px",
                     }}
                   />
-                  <Typography fontWeight="500" fontSize="13px">
+                  <Typography fontWeight="500" fontSize="14px">
                     {contactList.email}
                   </Typography>
                 </Box>

@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dummyReducer from "./dummySlice";
 import loginReducer from "../lib/auth/loginSlice";
+import clientReducer from "../lib/client/clientSlice";
 
 export const store = configureStore({
   reducer: {
     login: loginReducer,
-    dummy: dummyReducer,
+    client: clientReducer,
   },
 });

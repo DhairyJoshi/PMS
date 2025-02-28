@@ -20,9 +20,8 @@ const PageComponent = () => {
   const [userRole, setUserRole] = useState("");
 
   useEffect(() => {
-    // const role = localStorage.getItem("userRole");
-    // setUserRole(role);\
-    setUserRole('Employee')
+    const role = localStorage.getItem("user_role");
+    setUserRole(role);
   }, []);
 
   return (

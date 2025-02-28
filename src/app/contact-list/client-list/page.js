@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
@@ -10,131 +10,32 @@ import Link from "next/link";
 import PageTitle from "@/components/Common/PageTitle";
 import Image from "next/image";
 import withAuth from "@/components/Common/withAuth";
-
-const contactLists = [
-  {
-    image: "/images/member1.png",
-    name: "Alvarado Turner",
-    userName: "@alvaradoTurner",
-    email: "alvaradoTurner@gmail.com",
-    projectUrl: "#",
-    post: "18k",
-    followers: "5.21k",
-    followings: "32k",
-  },
-  {
-    image: "/images/member2.png",
-    name: "Evangelina Mcclain",
-    userName: "@evangelinaMcclain",
-    email: "evangelinaMcclain@gmail.com",
-    projectUrl: "#",
-    post: "10k",
-    followers: "4.20k",
-    followings: "15k",
-  },
-  {
-    image: "/images/member3.png",
-    name: "Candice Munoz",
-    userName: "@candiceMunoz",
-    email: "candiceMunoz@gmail.com",
-    projectUrl: "#",
-    post: "5k",
-    followers: "2.20k",
-    followings: "12k",
-  },
-  {
-    image: "/images/member4.png",
-    name: "Bernard Langley",
-    userName: "@bernardLangley",
-    email: "bernardLangley@gmail.com",
-    projectUrl: "#",
-    post: "19k",
-    followers: "10.20k",
-    followings: "30k",
-  },
-  {
-    image: "/images/member5.png",
-    name: "Kristie Hall",
-    userName: "@kristieHall",
-    email: "kristieHall@gmail.com",
-    projectUrl: "#",
-    post: "14k",
-    followers: "9.20k",
-    followings: "40k",
-  },
-  {
-    image: "/images/member6.png",
-    name: "Bolton Obrien",
-    userName: "@boltonObrien",
-    email: "boltonObrien@gmail.com",
-    projectUrl: "#",
-    post: "20k",
-    followers: "19.20k",
-    followings: "50k",
-  },
-  {
-    image: "/images/member7.png",
-    name: "Dee Alvarado",
-    userName: "@deeAlvarado",
-    email: "deeAlvarado@gmail.com",
-    projectUrl: "#",
-    post: "22k",
-    followers: "30.20k",
-    followings: "50k",
-  },
-  {
-    image: "/images/member8.png",
-    name: "Cervantes Kramer",
-    userName: "@cervantesKramer",
-    email: "cervantesKramer@gmail.com",
-    projectUrl: "#",
-    post: "25k",
-    followers: "35.20k",
-    followings: "10k",
-  },
-  {
-    image: "/images/member9.png",
-    name: "Dejesus Michael",
-    userName: "@dejesusMichael",
-    email: "dejesusMichael@gmail.com",
-    projectUrl: "#",
-    post: "16k",
-    followers: "20.20k",
-    followings: "5k",
-  },
-  {
-    image: "/images/member10.png",
-    name: "Alissa Nelson",
-    userName: "@alissaNelson",
-    email: "alissaNelson@gmail.com",
-    projectUrl: "#",
-    post: "13k",
-    followers: "20.20k",
-    followings: "250",
-  },
-  {
-    image: "/images/member11.png",
-    name: "English Haney",
-    userName: "@englishHaney",
-    email: "englishHaney@gmail.com",
-    projectUrl: "#",
-    post: "12k",
-    followers: "12.20k",
-    followings: "1205",
-  },
-  {
-    image: "/images/member12.png",
-    name: "Edwards Mckenzie",
-    userName: "@edwardsMckenzie",
-    email: "edwardsMckenzie@gmail.com",
-    projectUrl: "#",
-    post: "11k",
-    followers: "30.20k",
-    followings: "5k",
-  },
-];
+import { useDispatch, useSelector } from "react-redux";
+import { fetchClientsData } from "@/lib/client/clientSlice";
 
 const Page = () => {
+  const dispatch = useDispatch();
+  const clientsData = useSelector((state) => state.client.clients);
+  const [contactLists, setContactLists] = useState([]);
+
+  useEffect(() => {
+    dispatch(fetchClientsData());
+  }, [dispatch]);
+
+
+  useEffect(() => {
+    if (clientsData?.users?.length > 0) {
+      const formattedClients = clientsData.users.map((client) => ({
+        image: client.image || "/images/member1.png",
+        name: `${client.firstName} ${client.lastName}`,
+        userName: `@${client.username}`,
+        email: client.email,
+        projectUrl: "#",
+      }));
+      setContactLists(formattedClients);
+    }
+  }, [clientsData]);
+
   return (
     <>
       <PageTitle
