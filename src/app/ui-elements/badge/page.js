@@ -44,4 +44,4 @@ const Page = () => {
   );
 }
 
-export default withAuth(Page);
+export default withAuth(Page, ['Admin', 'Employee']);

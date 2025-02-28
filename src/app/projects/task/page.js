@@ -42,4 +42,4 @@ const Task = () => {
   );
 };
 
-export default withAuth(Task);
+export default withAuth(Task, ['Admin', 'Employee']);

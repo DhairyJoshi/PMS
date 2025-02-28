@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 import Link from "next/link";
 import styles from "@/components/Layouts/LeftSidebar/SubMenu.module.css";
 import { usePathname } from "next/navigation";
+import withAuth from "@/components/Common/withAuth";
 
 const SidebarLabel = styled("span")(({ theme }) => ({
   position: "relative",
@@ -56,4 +57,4 @@ const SubMenu = ({ item }) => {
   );
 };
 
-export default SubMenu;
+export default withAuth(SubMenu, ['Admin', 'Employee']);

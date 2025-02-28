@@ -55,4 +55,4 @@ const Slider = () => {
   );
 }
 
-export default withAuth(Slider);
+export default withAuth(Slider, ['Admin', 'Employee']);

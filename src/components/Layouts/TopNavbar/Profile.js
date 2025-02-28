@@ -194,19 +194,23 @@ const Profile = () => {
         <Divider />
 
         <MenuItem>
-          <ListItemIcon sx={{ mr: "-8px", mt: "-3px" }}>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-
           <Button
             onClick={handleLogout}
             style={{
               all: "unset", // Removes all styles
               cursor: "pointer", // Keeps it clickable
-              fontSize: "13px", // Ensures text size
-            }}
-          >
-            Logout
+              fontSize: "10px", // Ensures text size
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}>
+            <ListItemIcon sx={{ mr: "-8px", mt: "-3px" }}>
+              <Logout fontSize="small" />
+            </ListItemIcon>
+
+            <Typography>
+              Logout
+            </Typography>
           </Button>
         </MenuItem>
       </Menu>

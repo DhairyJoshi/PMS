@@ -412,10 +412,10 @@ export const SidebarData = [
         title: "Terms & Conditions",
         path: "/pages/terms-conditions/",
       },
-      {
-        title: "Logout",
-        path: "/authentication/logout/",
-      },
+      // {
+      //   title: "Logout",
+      //   path: "/authentication/logout/",
+      // },
     ],
   },
 ];
