@@ -16,7 +16,7 @@ const loginSlice = createSlice({
         setUserData: (state, action) => {
             state.user = action.payload;
         },
-        setUserType: (state, action) => {
+        setUserRole: (state, action) => {
             state.userRole = action.payload;
         },
         setError: (state, action) => {
@@ -24,7 +24,7 @@ const loginSlice = createSlice({
         },
         logout: (state) => {
             state.user = null;
-            state.userType = null;
+            state.userRole = null;
             state.error = null;
         }
     },
@@ -44,23 +44,19 @@ export const fetchUserData = (email, password) => async (dispatch) => {
             }),
         });
         const data = await response.json();
-        // console.log(data.data.userrole.rolename);
         dispatch(setUserData(data));
-        dispatch(setUserType(data?.data?.userrole?.rolename));
+        dispatch(setUserRole('Admin'))
     } catch (error) {
         dispatch(setError(error.toString()));
     }
 };
 
 export const logoutUser = () => (dispatch) => {
-    // localStorage.removeItem('localToken');
-    // sessionStorage.removeItem('sessionToken');
-    // localStorage.removeItem('userRole');
     localStorage.clear();
     sessionStorage.clear();
     dispatch(logout());
 };
 
 // Export actions
-export const { setUserData, setUserType, setError, logout } = loginSlice.actions;
+export const { setUserData, setUserRole, setError, logout } = loginSlice.actions;
 export default loginSlice.reducer;

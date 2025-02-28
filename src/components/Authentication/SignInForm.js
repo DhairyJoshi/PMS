@@ -17,7 +17,6 @@ import { useRouter } from "next/navigation";
 
 const SignInForm = () => {
   const userData = useSelector((state) => state.login.user);
-  const userRole = useSelector((state) => state.login.userRole);
   const error = useSelector((state) => state.login.error);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [rememberUser, setRememberUser] = useState(false);
@@ -40,16 +39,16 @@ const SignInForm = () => {
   };
 
   useEffect(() => {
-    if (userData?.statuscode === 200) {
+    if (userData) {
       if (rememberUser) {
-        localStorage.setItem("localToken", "access-token-here");
-        localStorage.setItem("userRole", userData.data.userrole.rolename);
+        localStorage.setItem("localToken", userData);
       } else {
-        sessionStorage.setItem("sessionToken", "access-token-here");
-        localStorage.setItem("userRole", userData.data.userrole.rolename);
+        sessionStorage.setItem("sessionToken", userData);
       }
       localStorage.setItem("user_email", formData.email);
       localStorage.setItem("user_password", formData.password);
+      console.log(localStorage.getItem("user_email"))
+      console.log(localStorage.getItem("user_password"))
       router.push("/");
     }
   }, [userData, rememberUser, router]);
