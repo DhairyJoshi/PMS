@@ -3,14 +3,12 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Grid from "@mui/material/Grid";
-import { Typography } from "@mui/material";
+import { FormLabel, Radio, RadioGroup, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import styles from "@/components/Authentication/Authentication.module.css";
-import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "../../lib/auth/loginSlice";
 import { useRouter } from "next/navigation";
@@ -18,7 +16,7 @@ import { useRouter } from "next/navigation";
 const SignInForm = () => {
   const userData = useSelector((state) => state.login.user);
   const error = useSelector((state) => state.login.error);
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ email: "", password: "", userRole: "" });
   const [rememberUser, setRememberUser] = useState(false);
 
   const dispatch = useDispatch();
@@ -26,8 +24,7 @@ const SignInForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    dispatch(fetchUserData(formData.email, formData.password));
+    dispatch(fetchUserData(formData.email, formData.password, formData.userRole));
   };
 
   const handleInputChange = (e) => {
@@ -47,8 +44,7 @@ const SignInForm = () => {
       }
       localStorage.setItem("user_email", formData.email);
       localStorage.setItem("user_password", formData.password);
-      console.log(localStorage.getItem("user_email"))
-      console.log(localStorage.getItem("user_password"))
+      localStorage.setItem("user_role", formData.userRole);
       router.push("/");
     }
   }, [userData, rememberUser, router]);
@@ -86,7 +82,7 @@ const SignInForm = () => {
                 </Link>
               </Typography>
 
-              <Box
+              {/* <Box
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
@@ -107,9 +103,42 @@ const SignInForm = () => {
 
               <div className={styles.or}>
                 <span>or</span>
-              </div>
+              </div> */}
 
               <Box component="form" noValidate onSubmit={handleSubmit}>
+                <FormLabel id="demo-radio-buttons-group-label">Select Role:</FormLabel>
+                <RadioGroup
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  name="userRole"
+                  value={formData.userRole}
+                  onChange={handleInputChange}
+                  row
+                  required
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'start',
+                    alignItems: 'center',
+                    flexWrap: 'wrap',
+                    marginBottom: '20px'
+                  }}
+                >
+                  {["Admin", "Employee", "Client"].map((role) => (
+                    <Box
+                      key={role}
+                      sx={{
+                        border: `2px solid ${formData.userRole === role ? "#757FEF" : "#5B5B98"}`,
+                        color: `${formData.userRole === role ? "#757FEF" : "#5B5B98"}`,
+                        borderRadius: "7px",
+                        padding: "5px 0px 5px 15px",
+                        margin: "5px 10px",
+                        transition: "border-color 0.3s ease-in-out",
+                      }}
+                    >
+                      <FormControlLabel value={role} control={<Radio />} label={role} />
+                    </Box>
+                  ))}
+                </RadioGroup>
+
                 <Box
                   sx={{
                     background: "#fff",

@@ -19,6 +19,7 @@ const withAuth = (Component, allowedRoles = []) => {
       const sessionToken = sessionStorage.getItem("sessionToken");
       const storedEmail = localStorage.getItem("user_email");
       const storedPassword = localStorage.getItem("user_password");
+      const storedRole = localStorage.getItem("user_role");
 
       if (!localToken && !sessionToken) {
         router.replace("/authentication/sign-in/");
@@ -26,7 +27,7 @@ const withAuth = (Component, allowedRoles = []) => {
       }
 
       if (!user && storedEmail && storedPassword) {
-        dispatch(fetchUserData(storedEmail, storedPassword));
+        dispatch(fetchUserData(storedEmail, storedPassword, storedRole));
       }
     }, [dispatch]);
 

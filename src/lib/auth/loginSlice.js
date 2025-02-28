@@ -31,23 +31,25 @@ const loginSlice = createSlice({
 });
 
 // Async action creator for fetching data
-export const fetchUserData = (email, password) => async (dispatch) => {
-    try {
-        const response = await fetch(`${url}admin_login/`, {
-            method: 'POST',
-            headers: { 
-                'Content-Type': 'application/json', 
-             },
-            body: JSON.stringify({
-                email:email,
-                password:password
-            }),
-        });
-        const data = await response.json();
-        dispatch(setUserData(data));
-        dispatch(setUserRole('Admin'))
-    } catch (error) {
-        dispatch(setError(error.toString()));
+export const fetchUserData = (email, password, userRole) => async (dispatch) => {
+    if (userRole === 'Admin') {
+        try {
+            const response = await fetch(`${url}admin_login/`, {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json', 
+                 },
+                body: JSON.stringify({
+                    email:email,
+                    password:password
+                }),
+            });
+            const data = await response.json();
+            dispatch(setUserData(data));
+            dispatch(setUserRole(userRole))
+        } catch (error) {
+            dispatch(setError(error.toString()));
+        }
     }
 };
 
