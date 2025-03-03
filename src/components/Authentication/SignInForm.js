@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Grid from "@mui/material/Grid";
-import { FormLabel, Radio, RadioGroup, Typography } from "@mui/material";
+import { Radio, RadioGroup, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -15,8 +15,9 @@ import { useRouter } from "next/navigation";
 
 const SignInForm = () => {
   const userData = useSelector((state) => state.login.user);
+  const userRole = useSelector((state) => state.login.userRole);
   const error = useSelector((state) => state.login.error);
-  const [formData, setFormData] = useState({ email: "", password: "", userRole: "" });
+  const [formData, setFormData] = useState({ email: "", password: "", desiredRole: "" });
   const [rememberUser, setRememberUser] = useState(false);
 
   const dispatch = useDispatch();
@@ -24,7 +25,8 @@ const SignInForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(fetchUserData(formData.email, formData.password, formData.userRole));
+
+    dispatch(fetchUserData(formData.email, formData.password, formData.desiredRole));
   };
 
   const handleInputChange = (e) => {
@@ -36,15 +38,15 @@ const SignInForm = () => {
   };
 
   useEffect(() => {
-    if (userData) {
+    if (userData?.statuscode === 200) {
       if (rememberUser) {
-        localStorage.setItem("localToken", userData);
+        localStorage.setItem("localToken", "access-token-here");
       } else {
-        sessionStorage.setItem("sessionToken", userData);
+        sessionStorage.setItem("sessionToken", "access-token-here");
       }
       localStorage.setItem("user_email", formData.email);
       localStorage.setItem("user_password", formData.password);
-      localStorage.setItem("user_role", formData.userRole);
+      localStorage.setItem("desired_role", formData.desiredRole);
       router.push("/");
     }
   }, [userData, rememberUser, router]);
@@ -82,34 +84,10 @@ const SignInForm = () => {
                 </Link>
               </Typography>
 
-              {/* <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  mb: "30px",
-                }}
-              >
-                <Link href="#" className={styles.googleBtn}>
-                  <Image src="/images/google-icon.png" width={20} height={20} />
-                  Sign in with Google
-                </Link>
-
-                <Link href="#" className={styles.fbBtn}>
-                  <Image src="/images/fb-icon.png" width={20} height={20} />
-                  Sign in with Facebook
-                </Link>
-              </Box>
-
-              <div className={styles.or}>
-                <span>or</span>
-              </div> */}
-
               <Box component="form" noValidate onSubmit={handleSubmit}>
-                <FormLabel id="demo-radio-buttons-group-label">Select Role:</FormLabel>
                 <RadioGroup
                   aria-labelledby="demo-radio-buttons-group-label"
-                  name="userRole"
+                  name="desiredRole"
                   value={formData.userRole}
                   onChange={handleInputChange}
                   row

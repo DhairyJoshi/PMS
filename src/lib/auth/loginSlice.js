@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { decodeBase64 } from "../decodeBase64";
 
 const initialState = {
     user: null,
@@ -24,16 +25,16 @@ const loginSlice = createSlice({
         },
         logout: (state) => {
             state.user = null;
-            state.userRole = null;
+            state.userType = null;
             state.error = null;
         }
     },
 });
 
 // Async action creator for fetching data
-export const fetchUserData = (email, password, userRole) => async (dispatch) => {
-    if (userRole === 'Admin') {
-        try {
+export const fetchUserData = (email, password, desiredRole) => async (dispatch) => {
+    try {
+        if (desiredRole === 'Admin') {
             const response = await fetch(`${url}admin_login/`, {
                 method: 'POST',
                 headers: { 
@@ -45,11 +46,12 @@ export const fetchUserData = (email, password, userRole) => async (dispatch) => 
                 }),
             });
             const data = await response.json();
-            dispatch(setUserData(data));
-            dispatch(setUserRole(userRole))
-        } catch (error) {
-            dispatch(setError(error.toString()));
+            const decodedData = decodeBase64(data);
+            dispatch(setUserData(decodedData));
+            dispatch(setUserRole(decodedData?.data?.userrole?.rolename));
         }
+    } catch (error) {
+        dispatch(setError(error.toString()));
     }
 };
 

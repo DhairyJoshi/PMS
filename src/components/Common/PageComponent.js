@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Grid from "@mui/material/Grid";
 import Features from "@/components/Dashboard/ProjectManagement/Features";
 import TaskDistribution from "@/components/Dashboard/ProjectManagement/TaskDistribution";
@@ -14,15 +14,10 @@ import ActivityTimeline from "@/components/Dashboard/ProjectManagement/ActivityT
 import PageTitle from "@/components/Common/PageTitle";
 import ProjectsOverview from "@/components/Dashboard/ProjectManagement/ProjectsOverview";
 import TeamMembersList from "@/components/Dashboard/ProjectManagement/TeamMembersList";
-import withAuth from "@/components/Common/withAuth";
+import { useSelector } from "react-redux";
 
 const PageComponent = () => {
-  const [userRole, setUserRole] = useState("");
-
-  useEffect(() => {
-    const role = localStorage.getItem("user_role");
-    setUserRole(role);
-  }, []);
+  const userRole = useSelector((state) => state.login.userRole);
 
   return (
     <>
@@ -100,4 +95,4 @@ const PageComponent = () => {
   );
 }
 
-export default withAuth(PageComponent, ['Admin', 'Employee']);
+export default PageComponent;
