@@ -57,4 +57,4 @@ const AccessDenied = () => {
   );
 }
 
-export default withAuth(AccessDenied)
+export default AccessDenied

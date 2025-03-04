@@ -876,4 +876,4 @@ const EmployeesList = () => {
   );
 }
 
-export default withAuth(EmployeesList, ['Admin']);
+export default EmployeeList

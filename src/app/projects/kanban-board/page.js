@@ -43,4 +43,4 @@ const KanbanBoard = () => {
   );
 };
 
-export default withAuth(KanbanBoard, ['Admin', 'Employee']);
+export default KanbanBoard

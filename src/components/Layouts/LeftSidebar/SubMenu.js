@@ -57,4 +57,4 @@ const SubMenu = ({ item }) => {
   );
 };
 
-export default withAuth(SubMenu, ['Admin', 'Employee']);
+export default SubMenu

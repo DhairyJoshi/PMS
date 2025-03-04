@@ -12,6 +12,7 @@ import Checkbox from "@mui/material/Checkbox";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "../../lib/auth/loginSlice";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 const SignInForm = () => {
   const userData = useSelector((state) => state.login.user);
@@ -47,6 +48,7 @@ const SignInForm = () => {
       localStorage.setItem("user_email", formData.email);
       localStorage.setItem("user_password", formData.password);
       localStorage.setItem("desired_role", formData.desiredRole);
+      Cookies.set("userRole", formData.desiredRole);
       router.push("/");
     }
   }, [userData, rememberUser, router]);

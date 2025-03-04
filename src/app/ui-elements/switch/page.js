@@ -51,4 +51,4 @@ const Page = () => {
   );
 }
 
-export default withAuth(Page, ['Admin', 'Employee']);
+export default Page;

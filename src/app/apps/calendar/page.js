@@ -263,4 +263,4 @@ const Calendar = () => {
   );
 };
 
-export default withAuth(Calendar, ['Admin', 'Employee']);
+export default Calendar;

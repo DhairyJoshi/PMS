@@ -279,4 +279,4 @@ const ProjectCreate = () => {
   );
 };
 
-export default withAuth(ProjectCreate, ['Admin']);
+export default ProjectCreate

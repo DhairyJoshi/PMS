@@ -908,4 +908,4 @@ const User = () => {
   );
 }
 
-export default withAuth(User, ['Admin']);
+export default User

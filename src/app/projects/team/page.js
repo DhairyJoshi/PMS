@@ -539,4 +539,4 @@ const Team = () => {
   );
 };
 
-export default withAuth(Team, ['Admin']);
+export default Team

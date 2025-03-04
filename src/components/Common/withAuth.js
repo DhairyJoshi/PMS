@@ -29,7 +29,7 @@ const withAuth = (Component, allowedRoles = []) => {
       if (!user && storedEmail && storedPassword) {
         dispatch(fetchUserData(storedEmail, storedPassword, storedRole));
       }
-    }, []);
+    }, [dispatch, router, user]);
 
     useEffect(() => {
       if (user) {
@@ -40,7 +40,7 @@ const withAuth = (Component, allowedRoles = []) => {
         setAuthenticated(true);
       }
       setLoading(false);
-    }, [user, userRole]);
+    }, [user, userRole, allowedRoles, router]);
 
     // Show loader while fetching user data
     if (loading || !authenticated) {

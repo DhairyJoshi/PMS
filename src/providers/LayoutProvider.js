@@ -4,63 +4,53 @@ import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import LeftSidebar from "@/components/Layouts/LeftSidebar";
 import TopNavbar from "@/components/Layouts/TopNavbar";
-
 import Footer from "@/components/Layouts/Footer";
-import ScrollToTop from "../components/Layouts/ScrollToTop";
-import ControlPanelModal from "../components/Layouts/ControlPanelModal";
+import ScrollToTop from "@/components/Layouts/ScrollToTop";
+import ControlPanelModal from "@/components/Layouts/ControlPanelModal";
+import withAuth from "@/components/Common/withAuth";
+
+const authPaths = [
+  "/authentication/sign-in",
+  "/authentication/sign-up",
+  "/authentication/forgot-password",
+  "/authentication/lock-screen",
+  "/authentication/confirm-mail",
+  "/authentication/logout",
+];
 
 const LayoutProvider = ({ children }) => {
   const [active, setActive] = useState(false);
   const pathname = usePathname();
+  const isAuthPage = authPaths.some((authPath) => pathname.startsWith(authPath));
 
-  const toogleActive = () => {
+  const toggleActive = () => {
     setActive(!active);
   };
 
-  return (
+  const LayoutContent = () => (
     <>
-      <div className={`main-wrapper-content ${active && "active"}`}>
-        {!(
-          pathname === "/authentication/sign-in/" ||
-          pathname === "/authentication/sign-up/" ||
-          pathname === "/authentication/forgot-password/" ||
-          pathname === "/authentication/lock-screen/" ||
-          pathname === "/authentication/confirm-mail/" ||
-          pathname === "/authentication/logout/"
-        ) && (
-            <>
-              <TopNavbar toogleActive={toogleActive} />
-
-              <LeftSidebar toogleActive={toogleActive} />
-            </>
-          )}
+      <div className={`main-wrapper-content ${active ? "active" : ""}`}>
+        {!isAuthPage && (
+          <>
+            <TopNavbar toggleActive={toggleActive} />
+            <LeftSidebar toggleActive={toggleActive} />
+          </>
+        )}
 
         <div className="main-content">
           {children}
-          {!(
-            pathname === "/authentication/sign-in/" ||
-            pathname === "/authentication/sign-up/" ||
-            pathname === "/authentication/forgot-password/" ||
-            pathname === "/authentication/lock-screen/" ||
-            pathname === "/authentication/confirm-mail/" ||
-            pathname === "/authentication/logout/"
-          ) && <Footer />}
+          {!isAuthPage && <Footer />}
         </div>
       </div>
 
-      {/* ScrollToTop */}
       <ScrollToTop />
 
-      {!(
-        pathname === "/authentication/sign-in/" ||
-        pathname === "/authentication/sign-up/" ||
-        pathname === "/authentication/forgot-password/" ||
-        pathname === "/authentication/lock-screen/" ||
-        pathname === "/authentication/confirm-mail/" ||
-        pathname === "/authentication/logout/"
-      ) && <ControlPanelModal />}
+      {!isAuthPage && <ControlPanelModal />}
     </>
   );
+
+  const ProtectedLayout = withAuth(LayoutContent);
+  return isAuthPage ? <LayoutContent /> : <ProtectedLayout />;
 };
 
 export default LayoutProvider;
