@@ -90,7 +90,7 @@ const SignInForm = () => {
                 <RadioGroup
                   aria-labelledby="demo-radio-buttons-group-label"
                   name="desiredRole"
-                  value={formData.userRole}
+                  value={formData.desiredRole}
                   onChange={handleInputChange}
                   row
                   required
@@ -106,8 +106,8 @@ const SignInForm = () => {
                     <Box
                       key={role}
                       sx={{
-                        border: `2px solid ${formData.userRole === role ? "#757FEF" : "#5B5B98"}`,
-                        color: `${formData.userRole === role ? "#757FEF" : "#5B5B98"}`,
+                        border: `2px solid ${formData.desiredRole === role ? "#757FEF" : "#5B5B98"}`,
+                        color: `${formData.desiredRole === role ? "#757FEF" : "#5B5B98"}`,
                         borderRadius: "7px",
                         padding: "5px 0px 5px 15px",
                         margin: "5px 10px",

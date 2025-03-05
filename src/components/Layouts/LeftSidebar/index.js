@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { SidebarData } from "./SidebarData";
+import { SidebarData } from "../LeftSidebar/SideBarData";
 import SubMenu from "./SubMenu";
 import Link from "next/link";
 import ClearIcon from "@mui/icons-material/Clear";

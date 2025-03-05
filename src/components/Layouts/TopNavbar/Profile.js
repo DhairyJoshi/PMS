@@ -19,30 +19,16 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import Logout from "@mui/icons-material/Logout";
-import { Button } from "@mui/base";
-import { useRouter } from "next/navigation";
-import { useDispatch } from "react-redux";
-import { logoutUser } from "@/lib/auth/loginSlice";
 
 const Profile = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const router = useRouter();
-  const dispatch = useDispatch();
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const handleLogout = (e) => {
-    e.preventDefault();
-    dispatch(logoutUser());
-    router.push("/authentication/logout/");
-  };
-
   return (
     <>
       <Tooltip title="Account settings">
@@ -194,24 +180,18 @@ const Profile = () => {
         <Divider />
 
         <MenuItem>
-          <Button
-            onClick={handleLogout}
-            style={{
-              all: "unset", // Removes all styles
-              cursor: "pointer", // Keeps it clickable
-              fontSize: "10px", // Ensures text size
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center"
-            }}>
-            <ListItemIcon sx={{ mr: "-8px", mt: "-3px" }}>
-              <Logout fontSize="small" />
-            </ListItemIcon>
+          <ListItemIcon sx={{ mr: "-8px", mt: "-3px" }}>
+            <Logout fontSize="small" />
+          </ListItemIcon>
 
-            <Typography>
-              Logout
-            </Typography>
-          </Button>
+          <Link
+            href="/authentication/logout/"
+            fontSize="13px"
+            color="inherit"
+            underline="none"
+          >
+            Logout
+          </Link>
         </MenuItem>
       </Menu>
     </>

@@ -32,12 +32,10 @@ export function middleware(request) {
   }
 
   if (!userRole) {
-    console.log("User not authenticated. Redirecting to sign-in...");
     return NextResponse.redirect(new URL("/authentication/sign-in", request.url));
   }
 
   if (userRole === "Admin") {
-    console.log(`Admin access granted to ${path}`);
     return NextResponse.next();
   }
 
@@ -48,7 +46,6 @@ export function middleware(request) {
     return NextResponse.redirect(new URL("/access-denied", request.url));
   }
 
-  console.log(`Access granted to ${path} for role: ${userRole}`);
   return NextResponse.next();
 }
 
