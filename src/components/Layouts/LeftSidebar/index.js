@@ -1,12 +1,13 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { SidebarData } from "../LeftSidebar/SideBarData";
+import { SidebarDataAdmin, SidebarDataEmployee, SidebarDataClient } from "../LeftSidebar/SideBarData";
 import SubMenu from "./SubMenu";
 import Link from "next/link";
 import ClearIcon from "@mui/icons-material/Clear";
 import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
 const SidebarNav = styled("nav")(({ theme }) => ({
   background: "#fff",
@@ -29,6 +30,18 @@ const SidebarWrap = styled("div")(({ theme }) => ({
 }));
 
 const Sidebar = ({ toogleActive }) => {
+
+  const userRole = useSelector((state) => state.login.userRole);
+  let sidebarData = [];
+
+  if (userRole === "Admin") {
+    sidebarData = SidebarDataAdmin;
+  } else if (userRole === "Employee") {
+    sidebarData = SidebarDataEmployee;
+  } else if (userRole === "Client") {
+    sidebarData = SidebarDataClient;
+  }
+
   return (
     <>
       <div className="leftSidebarDark">
@@ -74,7 +87,7 @@ const Sidebar = ({ toogleActive }) => {
               </IconButton>
             </Box>
 
-            {SidebarData.map((item, index) => {
+            {sidebarData.map((item, index) => {
               return <SubMenu item={item} key={index} />;
             })}
           </SidebarWrap>

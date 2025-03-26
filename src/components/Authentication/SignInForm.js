@@ -40,18 +40,33 @@ const SignInForm = () => {
 
   useEffect(() => {
     if (userData?.statuscode === 200) {
-      if (rememberUser) {
-        localStorage.setItem("localToken", "access-token-here");
-      } else {
-        sessionStorage.setItem("sessionToken", "access-token-here");
-      }
+      // if (rememberUser) {
+      //   localStorage.setItem("localToken", "access-token-here");
+      // } else {
+      //   sessionStorage.setItem("sessionToken", "access-token-here");
+      // }
       localStorage.setItem("user_email", formData.email);
       localStorage.setItem("user_password", formData.password);
       localStorage.setItem("desired_role", formData.desiredRole);
-      Cookies.set("userRole", formData.desiredRole);
+      Cookies.set("userRole", userRole);
       router.push("/");
     }
   }, [userData, rememberUser, router]);
+
+  // useEffect(() => {
+  //   if (userData) {
+  //     if (rememberUser) {
+  //       localStorage.setItem("localToken", "access-token-here");
+  //     } else {
+  //       sessionStorage.setItem("sessionToken", "access-token-here");
+  //     }
+  //     localStorage.setItem("user_email", formData.email);
+  //     localStorage.setItem("user_password", formData.password);
+  //     localStorage.setItem("desired_role", formData.desiredRole);
+  //     Cookies.set("userRole", formData.desiredRole);
+  //     router.push("/");
+  //   }
+  // }, [userData, rememberUser, router]);
 
 
   if (error) {

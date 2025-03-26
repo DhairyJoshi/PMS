@@ -19,8 +19,16 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import Logout from "@mui/icons-material/Logout";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "@/lib/auth/loginSlice";
 
 const Profile = () => {
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+  };
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -179,7 +187,7 @@ const Profile = () => {
 
         <Divider />
 
-        <MenuItem>
+        <MenuItem onClick={ handleLogout }>
           <ListItemIcon sx={{ mr: "-8px", mt: "-3px" }}>
             <Logout fontSize="small" />
           </ListItemIcon>

@@ -58,4 +58,4 @@ const ErrorPage = () => {
   );
 }
 
-export default withAuth(ErrorPage, ['Admin', 'Employee'])
+export default withAuth(ErrorPage, [])

@@ -33,48 +33,48 @@ const loginSlice = createSlice({
 });
 
 // Async action creator for fetching data
-// export const fetchUserData = (email, password, desiredRole) => async (dispatch) => {
-//     try {
-//         const endpoint = desiredRole === "Admin" ? "admin_login/" : "user_login/";
-//         const response = await fetch(`${url}${endpoint}`, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify({
-//                 email: email,
-//                 password: password
-//             }),
-//         });
-//         const data = await response.json();
-//         const decodedData = decodeBase64(data);
-//         dispatch(setUserData(decodedData));
-//         dispatch(setUserRole(decodedData?.data?.userrole?.rolename));
-//     } catch (error) {
-//         dispatch(setError(error.toString()));
-//     }
-// };
-
-export const fetchUserData = (username, password) => async (dispatch) => {
+export const fetchUserData = (email, password, desiredRole) => async (dispatch) => {
     try {
-        const response = await fetch('https://dummyjson.com/auth/login', {
+        const endpoint = desiredRole === "Admin" ? "admin_login/" : "user_login/";
+        const response = await fetch(`${url}${endpoint}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                username: username,
+                email: email,
                 password: password
             }),
         });
         const data = await response.json();
-        dispatch(setUserData(data));
-        console.log(data, "ss")
-        dispatch(setUserRole('Admin'));
+        const decodedData = decodeBase64(data);
+        dispatch(setUserData(decodedData));
+        dispatch(setUserRole(decodedData?.data?.userrole?.rolename));
+        // dispatch(setUserRole('Employee'));
     } catch (error) {
         dispatch(setError(error.toString()));
     }
 };
+
+// export const fetchUserData = (username, password) => async (dispatch) => {
+//     try {
+//         const response = await fetch('https://dummyjson.com/auth/login', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify({
+//                 username: username,
+//                 password: password
+//             }),
+//         });
+//         const data = await response.json();
+//         dispatch(setUserData(data));
+//         dispatch(setUserRole('Admin'));
+//     } catch (error) {
+//         dispatch(setError(error.toString()));
+//     }
+// };
 
 export const logoutUser = () => (dispatch) => {
     localStorage.clear();

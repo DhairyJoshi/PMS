@@ -11,23 +11,21 @@ const withAuth = (Component, allowedRoles = []) => {
     
     const userRole = useSelector((state) => state.login.userRole);
     const user = useSelector((state) => state.login.user);
-    console.log(userRole, "ss - wa")
-    console.log(userRole, "ss - wa")
 
     const [authenticated, setAuthenticated] = useState(false); 
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-      const localToken = localStorage.getItem("localToken");
-      const sessionToken = sessionStorage.getItem("sessionToken");
+      // const localToken = localStorage.getItem("localToken");
+      // const sessionToken = sessionStorage.getItem("sessionToken");
       const storedEmail = localStorage.getItem("user_email");
       const storedPassword = localStorage.getItem("user_password");
       const storedRole = localStorage.getItem("desired_role");
 
-      if (!localToken && !sessionToken) {
-        router.replace("/authentication/sign-in/");
-        return;
-      }
+      // if (!localToken && !sessionToken) {
+      //   router.replace("/authentication/sign-in/");
+      //   return;
+      // }
 
       if (!user && storedEmail && storedPassword) {
         dispatch(fetchUserData(storedEmail, storedPassword, storedRole));
