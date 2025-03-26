@@ -9,7 +9,6 @@ import SlideTransitions from "@/components/UIElements/Transitions/SlideTransitio
 import SlideRelativeToAContainer from "@/components/UIElements/Transitions/SlideRelativeToAContainer";
 import ZoomTransitions from "@/components/UIElements/Transitions/ZoomTransitions";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

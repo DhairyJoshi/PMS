@@ -9,7 +9,6 @@ import CountrySelect from "@/components/Forms/AdvancedElements/CountrySelect";
 import BasicDatePicker from "@/components/Forms/AdvancedElements/BasicDatePicker";
 import BasicTimePicker from "@/components/Forms/AdvancedElements/BasicTimePicker";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

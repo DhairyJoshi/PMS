@@ -10,7 +10,6 @@ import CustomMarks from "@/components/UIElements/Slider/CustomMarks";
 import RestrictedValues from "@/components/UIElements/Slider/RestrictedValues";
 import LabelAlwaysVisible from "@/components/UIElements/Slider/LabelAlwaysVisible";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Slider = () => {
   return (

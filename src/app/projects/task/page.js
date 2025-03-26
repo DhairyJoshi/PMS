@@ -8,7 +8,6 @@ import TasksPerformance from "@/components/Projects/Task/TasksPerformance";
 import MyTasks from "@/components/Projects/Task/MyTasks";
 
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Task = () => {
   return (

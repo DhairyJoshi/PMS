@@ -4,7 +4,6 @@ import NavBar from "@/components/Settings/NavBar";
 import Card from "@mui/material/Card";
 import { Typography } from "@mui/material";
 import ChangePassword from "@/components/Settings/Account/ChangePassword";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

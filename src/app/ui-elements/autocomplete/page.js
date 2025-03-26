@@ -8,7 +8,6 @@ import FreeSolo from "@/components/UIElements/Autocomplete/FreeSolo";
 import Creatable from "@/components/UIElements/Autocomplete/Creatable";
 import CustomizeTextareaComponent from "@/components/UIElements/Autocomplete/CustomizeTextareaComponent";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

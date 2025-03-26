@@ -12,7 +12,6 @@ import DenseTable from "@/components/UIElements/Table/DenseTable";
 import SortingSelectingTable from "@/components/UIElements/Table/SortingSelectingTable";
 import CustomizationTable from "@/components/UIElements/Table/CustomizationTable";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

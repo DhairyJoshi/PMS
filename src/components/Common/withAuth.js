@@ -8,8 +8,11 @@ const withAuth = (Component, allowedRoles = []) => {
   const Auth = (props) => {
     const router = useRouter();
     const dispatch = useDispatch();
+    
     const userRole = useSelector((state) => state.login.userRole);
     const user = useSelector((state) => state.login.user);
+    console.log(userRole, "ss - wa")
+    console.log(userRole, "ss - wa")
 
     const [authenticated, setAuthenticated] = useState(false); 
     const [loading, setLoading] = useState(true);

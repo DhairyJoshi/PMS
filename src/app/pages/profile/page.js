@@ -10,7 +10,6 @@ import MyTasks from "@/components/Pages/Profile/MyTasks";
 import ProfileContent from "@/components/Pages/Profile/ProfileContent";
 import ImpressionGoalConversions from "@/components/Pages/Profile/ImpressionGoalConversions";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

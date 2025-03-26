@@ -6,7 +6,6 @@ import TestimonialsTwo from "@/components/Pages/Testimonials/TestimonialsTwo";
 import TestimonialsThree from "@/components/Pages/Testimonials/TestimonialsThree";
 
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

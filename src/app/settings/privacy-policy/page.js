@@ -4,7 +4,6 @@ import NavBar from "@/components/Settings/NavBar";
 import Card from "@mui/material/Card";
 import { Typography } from "@mui/material"; 
 import PrivacyPolicyContent from "@/components/Settings/Account/PrivacyPolicyContent";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

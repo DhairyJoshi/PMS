@@ -10,7 +10,6 @@ import Icon from "@/components/UIElements/Checkbox/Icon";
 import Controlled from "@/components/UIElements/Checkbox/Controlled";
 
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

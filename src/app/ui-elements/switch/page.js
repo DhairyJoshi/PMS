@@ -9,7 +9,6 @@ import Color from "@/components/UIElements/Switch/Color";
 import Controlled from "@/components/UIElements/Switch/Controlled";
 import SwitchesWithFormGroup from "@/components/UIElements/Switch/SwitchesWithFormGroup";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

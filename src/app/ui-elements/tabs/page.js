@@ -8,7 +8,6 @@ import VerticalTabs from "@/components/UIElements/Tabs/VerticalTabs";
 import IconTabs from "@/components/UIElements/Tabs/IconTabs";
 import IconPosition from "@/components/UIElements/Tabs/IconPosition";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

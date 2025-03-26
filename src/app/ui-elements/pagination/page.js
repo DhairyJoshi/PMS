@@ -9,7 +9,6 @@ import PaginationSize from "@/components/UIElements/Pagination/PaginationSize";
 import CustomIcons from "@/components/UIElements/Pagination/CustomIcons";
 
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

@@ -15,7 +15,6 @@ import CategoriesSelect from "@/components/Projects/ProjectCreate/CategoriesSele
 import PageTitle from "@/components/Common/PageTitle";
 import dynamic from "next/dynamic";
 import MemberSelect from "@/components/Projects/ProjectCreate/MemberSelect";
-import withAuth from "@/components/Common/withAuth";
 const RichTextEditor = dynamic(() => import("@mantine/rte"), {
   ssr: false,
 });

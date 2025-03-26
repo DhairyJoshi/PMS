@@ -10,7 +10,6 @@ import CustomizedHorizontalStepper from "@/components/UIElements/Stepper/Customi
 import VerticalStepper from "@/components/UIElements/Stepper/VerticalStepper";
 import MobileStepperText from "@/components/UIElements/Stepper/MobileStepperText";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

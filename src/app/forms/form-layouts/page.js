@@ -9,7 +9,6 @@ import SignUpForm from "@/components/Forms/FormLayouts/SignUpForm";
 import CustomStyles from "@/components/Forms/FormLayouts/CustomStyles";
 
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

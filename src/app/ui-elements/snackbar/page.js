@@ -7,7 +7,6 @@ import Customization from "@/components/UIElements/Snackbar/Customization";
 import PositionedSnackbars from "@/components/UIElements/Snackbar/PositionedSnackbars";
 import ComplementaryProjects from "@/components/UIElements/Snackbar/ComplementaryProjects";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

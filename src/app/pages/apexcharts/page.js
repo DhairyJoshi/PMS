@@ -27,7 +27,6 @@ import BasicRadialBarCharts from "@/components/Pages/Charts/ApexCharts/RadialBar
 import MultipleRadialbars from "@/components/Pages/Charts/ApexCharts/RadialBarCharts/MultipleRadialbars";
 import NavBar from "@/components/Pages/Charts/NavBar";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

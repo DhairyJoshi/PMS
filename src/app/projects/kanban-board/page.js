@@ -7,7 +7,6 @@ import ToDo from "@/components/Projects/KanbanBoard/ToDo";
 import InReview from "@/components/Projects/KanbanBoard/InReview";
 
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const KanbanBoard = () => {
   return (

@@ -9,7 +9,6 @@ import MultipleSelectDefault from "@/components/UIElements/Select/MultipleSelect
 import MultipleSelectCheckmarks from "@/components/UIElements/Select/MultipleSelectCheckmarks";
 import MultipleSelectChip from "@/components/UIElements/Select/MultipleSelectChip";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

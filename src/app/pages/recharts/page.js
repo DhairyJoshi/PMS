@@ -19,7 +19,6 @@ import SimpleRadarChart from "@/components/Pages/Charts/Recharts/RadarChart/Simp
 import SpecifiedDomainRadarChart from "@/components/Pages/Charts/Recharts/RadarChart/SpecifiedDomainRadarChart";
 
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

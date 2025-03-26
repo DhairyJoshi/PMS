@@ -10,7 +10,6 @@ import Overview from "@/components/ContactList/Overview";
 import MyTasks from "@/components/ContactList/MyTasks";
 import ImpressionGoalConversions from "@/components/ContactList/ImpressionGoalConversions";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

@@ -9,7 +9,6 @@ import CircularWithLabel from "@/components/UIElements/Progress/CircularWithLabe
 import LinearIndeterminate from "@/components/UIElements/Progress/LinearIndeterminate";
 import Customization from "@/components/UIElements/Progress/Customization";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

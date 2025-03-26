@@ -9,7 +9,6 @@ import Sizes from "@/components/UIElements/Rating/Sizes";
 import Customization from "@/components/UIElements/Rating/Customization";
 import RadioGroup from "@/components/UIElements/Rating/RadioGroup";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

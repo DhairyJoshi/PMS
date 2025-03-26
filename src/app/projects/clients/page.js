@@ -9,7 +9,6 @@ import Button from "@mui/material/Button";
 import Link from "next/link";
 import PageTitle from "@/components/Common/PageTitle";
 import Image from "next/image";
-import withAuth from "@/components/Common/withAuth";
 
 const clientsLists = [
   {

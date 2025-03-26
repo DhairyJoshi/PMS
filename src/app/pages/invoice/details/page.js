@@ -3,7 +3,6 @@
 import React from "react";
 import PageTitle from "@/components/Common/PageTitle";
 import InvoiceDetailsContent from "@/components/Pages/Invoice/InvoiceDetailsContent";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

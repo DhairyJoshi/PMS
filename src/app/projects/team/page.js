@@ -14,7 +14,6 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import Image from "next/image";
-import withAuth from "@/components/Common/withAuth";
 
 const TeamMembers = [
   {

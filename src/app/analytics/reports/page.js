@@ -6,7 +6,6 @@ import RevenueReport from "@/components/Analytics/Reports/RevenueReport";
 import AvarageReport from "@/components/Analytics/Reports/AvarageReport";
 import SessionsByCountries from "@/components/Analytics/Reports/SessionsByCountries";
 import BrowserUsedAndTrafficReports from "@/components/Analytics/Reports/BrowserUsedAndTrafficReports";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

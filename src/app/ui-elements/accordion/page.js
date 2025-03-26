@@ -7,7 +7,6 @@ import ControlledAccordion from "@/components/UIElements/Accordion/ControlledAcc
 import Customization from "@/components/UIElements/Accordion/Customization";
 
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

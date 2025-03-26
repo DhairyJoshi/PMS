@@ -13,7 +13,6 @@ import TotalAvatars from "@/components/UIElements/Avatar/TotalAvatars";
 import WithBadge from "@/components/UIElements/Avatar/WithBadge";
 
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

@@ -15,7 +15,6 @@ import SizesChip from "@/components/UIElements/Chip/SizesChip";
 import ChipArray from "@/components/UIElements/Chip/ChipArray";
 
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

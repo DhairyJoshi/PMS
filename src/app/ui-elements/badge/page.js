@@ -9,7 +9,6 @@ import BadgeOverlap from "@/components/UIElements/Badge/BadgeOverlap";
 import Accessibility from "@/components/UIElements/Badge/Accessibility";
 
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

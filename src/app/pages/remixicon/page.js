@@ -6,7 +6,6 @@ import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

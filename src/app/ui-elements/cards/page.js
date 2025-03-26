@@ -13,7 +13,6 @@ import ComplexInteraction from "@/components/UIElements/Cards/ComplexInteraction
 import Media from "@/components/UIElements/Cards/Media";
 import UIControls from "@/components/UIElements/Cards/UIControls";
 import Image from "next/image";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

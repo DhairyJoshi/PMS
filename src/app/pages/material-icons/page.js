@@ -36,7 +36,6 @@ import AlignVerticalBottomIcon from "@mui/icons-material/AlignVerticalBottom";
 import AllInboxIcon from "@mui/icons-material/AllInbox";
 import Button from "@mui/material/Button";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

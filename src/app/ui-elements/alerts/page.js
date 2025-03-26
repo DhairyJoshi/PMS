@@ -11,7 +11,6 @@ import Variants from "@/components/UIElements/Alerts/Variants";
 import Filled from "@/components/UIElements/Alerts/Filled";
 import Color from "@/components/UIElements/Alerts/Color";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

@@ -9,7 +9,6 @@ import PaginationDynamic from "@/components/UIElements/SwiperSlider/PaginationDy
 import PaginationProgress from "@/components/UIElements/SwiperSlider/PaginationProgress";
 import AutoplaySlider from "@/components/UIElements/SwiperSlider/AutoplaySlider";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

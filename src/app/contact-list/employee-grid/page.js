@@ -14,7 +14,6 @@ import EditIcon from "@mui/icons-material/Edit";
 import Tooltip from "@mui/material/Tooltip";
 import PageTitle from "@/components/Common/PageTitle";
 import Image from "next/image";
-import withAuth from "@/components/Common/withAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchClientsData } from "@/lib/client/clientSlice";
 

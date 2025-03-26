@@ -33,7 +33,6 @@ import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import CloseIcon from "@mui/icons-material/Close";
-import withAuth from "@/components/Common/withAuth";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 

@@ -8,7 +8,6 @@ import FolderList from "@/components/UIElements/List/FolderList";
 import ListControls from "@/components/UIElements/List/ListControls";
 
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

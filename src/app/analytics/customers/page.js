@@ -7,7 +7,6 @@ import VisitsByDay from "@/components/Analytics/Customers/VisitsByDay";
 import NetIncome from "@/components/Analytics/Customers/NetIncome";
 import NewSessions from "@/components/Analytics/Customers/NewSessions";
 import CustomersDetails from "@/components/Analytics/Customers/CustomersDetails";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

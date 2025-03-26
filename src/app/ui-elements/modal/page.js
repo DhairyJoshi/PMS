@@ -11,7 +11,6 @@ import FullScreenDialogs from "@/components/UIElements/Modal/FullScreenDialogs";
 import ScrollingLongContent from "@/components/UIElements/Modal/ScrollingLongContent";
 
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

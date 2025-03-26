@@ -9,7 +9,6 @@ import MasonryImageList from "@/components/UIElements/ImageList/MasonryImageList
 import ImageListWithTitleBars from "@/components/UIElements/ImageList/ImageListWithTitleBars";
 import TitleBarBelowImageStandard from "@/components/UIElements/ImageList/TitleBarBelowImageStandard";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

@@ -8,7 +8,6 @@ import Controlled from "@/components/UIElements/Radio/Controlled";
 import Size from "@/components/UIElements/Radio/Size";
 import Color from "@/components/UIElements/Radio/Color";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

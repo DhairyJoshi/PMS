@@ -13,7 +13,6 @@ import Loading from "@/components/UIElements/Buttons/Loading";
 import BlockButtons from "@/components/UIElements/Buttons/BlockButtons";
 import BasicFAB from "@/components/UIElements/Buttons/BasicFAB";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

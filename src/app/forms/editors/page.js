@@ -3,7 +3,6 @@
 import React from "react";
 import EditorArea from "@/components/Forms/EditorArea";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (

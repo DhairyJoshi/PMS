@@ -7,7 +7,6 @@ import Animations from "@/components/UIElements/Skeleton/Animations";
 import PulsateExample from "@/components/UIElements/Skeleton/PulsateExample";
 import WaveExample from "@/components/UIElements/Skeleton/WaveExample";
 import PageTitle from "@/components/Common/PageTitle";
-import withAuth from "@/components/Common/withAuth";
 
 const Page = () => {
   return (
