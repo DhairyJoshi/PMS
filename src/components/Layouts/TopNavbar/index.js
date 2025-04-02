@@ -9,7 +9,7 @@ import Profile from "./Profile";
 import Tooltip from "@mui/material/Tooltip";
 import CurrentDate from "./CurrentDate";
 
-const TopNavbar = ({ toogleActive }) => {
+const TopNavbar = ({ toggleActive }) => {
   return (
     <>
       <AppBar
@@ -29,7 +29,7 @@ const TopNavbar = ({ toogleActive }) => {
               size="sm"
               edge="start"
               color="inherit"
-              onClick={toogleActive}
+              onClick={toggleActive}
             >
               <i className="ri-align-left"></i>
             </IconButton>

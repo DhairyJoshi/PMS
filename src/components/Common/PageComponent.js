@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import Features from "@/components/Dashboard/ProjectManagement/Features";
 import TaskDistribution from "@/components/Dashboard/ProjectManagement/TaskDistribution";
@@ -15,9 +15,18 @@ import PageTitle from "@/components/Common/PageTitle";
 import ProjectsOverview from "@/components/Dashboard/ProjectManagement/ProjectsOverview";
 import TeamMembersList from "@/components/Dashboard/ProjectManagement/TeamMembersList";
 import { useSelector } from "react-redux";
+import Cookies from "js-cookie";
 
 const PageComponent = () => {
-  const userRole = useSelector((state) => state.login.userRole);
+  const reduxRole = useSelector((state) => state.login.userRole);
+  const [userRole, setUserRole] = useState(reduxRole);
+
+  useEffect(() => {
+    if (!reduxRole) {
+      const roleFromCookie = Cookies.get("userRole");
+      setUserRole(roleFromCookie);
+    }
+  }, [reduxRole]);
 
   return (
     <>

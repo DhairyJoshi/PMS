@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { SidebarDataAdmin, SidebarDataEmployee, SidebarDataClient } from "../LeftSidebar/SideBarData";
@@ -8,6 +8,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
 import { useSelector } from "react-redux";
+import Cookies from "js-cookie";
 
 const SidebarNav = styled("nav")(({ theme }) => ({
   background: "#fff",
@@ -29,9 +30,17 @@ const SidebarWrap = styled("div")(({ theme }) => ({
   width: "100%",
 }));
 
-const Sidebar = ({ toogleActive }) => {
+const Sidebar = ({ toggleActive }) => {
+  const reduxRole = useSelector((state) => state.login.userRole);
+  const [userRole, setUserRole] = useState(reduxRole);
 
-  const userRole = useSelector((state) => state.login.userRole);
+  useEffect(() => {
+    if (!reduxRole) {
+      const roleFromCookie = Cookies.get("userRole");
+      setUserRole(roleFromCookie);
+    }
+  }, [reduxRole]);
+
   let sidebarData = [];
 
   if (userRole === "Admin") {
@@ -76,7 +85,7 @@ const Sidebar = ({ toogleActive }) => {
               </Link>
 
               <IconButton
-                onClick={toogleActive}
+                onClick={toggleActive}
                 size="small"
                 sx={{
                   background: "rgb(253, 237, 237)",

@@ -6,7 +6,6 @@ import Box from "@mui/material/Box";
 import Link from "next/link";
 import Button from "@mui/material/Button";
 import Image from "next/image";
-import withAuth from "@/components/Common/withAuth";
 
 const ErrorPage = () => {
   return (
@@ -58,4 +57,4 @@ const ErrorPage = () => {
   );
 }
 
-export default withAuth(ErrorPage, [])
+export default (ErrorPage, [])
