@@ -188,16 +188,17 @@ const Profile = () => {
         <Divider />
 
         <MenuItem onClick={ handleLogout }>
-          <ListItemIcon sx={{ mr: "-8px", mt: "-3px" }}>
-            <Logout fontSize="small" />
-          </ListItemIcon>
 
           <Link
             href="/authentication/logout/"
             fontSize="13px"
             color="inherit"
             underline="none"
+            sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
+            <ListItemIcon sx={{ mr: "-8px", mt: "-3px" }}>
+              <Logout fontSize="small" />
+            </ListItemIcon>
             Logout
           </Link>
         </MenuItem>
