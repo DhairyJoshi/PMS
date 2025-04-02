@@ -50,7 +50,7 @@ export const fetchUserData = (email, password, desiredRole) => async (dispatch) 
         const decodedData = decodeBase64(data);
         dispatch(setUserData(decodedData));
         dispatch(setUserRole(decodedData?.data?.userrole?.rolename));
-        // dispatch(setUserRole('Employee'));
+        // dispatch(setUserRole('Client'));
     } catch (error) {
         dispatch(setError(error.toString()));
     }

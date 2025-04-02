@@ -49,7 +49,7 @@ const LayoutProvider = ({ children }) => {
     </>
   );
 
-  const ProtectedLayout = withAuth(LayoutContent, ['Admin', 'Employee']);
+  const ProtectedLayout = withAuth(LayoutContent, ['Admin', 'Employee', 'Client']);
   return isAuthPage ? <LayoutContent /> : <ProtectedLayout />;
 };
 
