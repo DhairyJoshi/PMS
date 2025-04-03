@@ -188,7 +188,6 @@ const Profile = () => {
         <Divider />
 
         <MenuItem onClick={ handleLogout }>
-
           <Link
             href="/authentication/logout/"
             fontSize="13px"

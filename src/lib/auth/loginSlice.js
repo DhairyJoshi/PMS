@@ -51,7 +51,7 @@ export const fetchUserData = (email, password, desiredRole) => async (dispatch) 
         dispatch(setUserData(decodedData));
         dispatch(setUserRole(decodedData?.data?.userrole?.rolename));
         Cookies.set('userRole', decodedData?.data?.userrole?.rolename);
-        // dispatch(setUserRole('Client'));
+        // dispatch(setUserRole('Employee'));
         // Cookies.set('userRole', 'decodedData?.data?.userrole?.rolename');
     } catch (error) {
         dispatch(setError(error.toString()));
