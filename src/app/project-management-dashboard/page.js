@@ -12,7 +12,7 @@ import TeamMembers from "@/components/Dashboard/ProjectManagement/TeamMembers";
 import ActivityTimeline from "@/components/Dashboard/ProjectManagement/ActivityTimeline";
 import PageTitle from "@/components/Common/PageTitle";
 
-export default function Page() {
+export default function HomePageAdmin() {
   return (
     <>
       <PageTitle
@@ -68,18 +68,20 @@ export default function Page() {
       >
         <Grid item xs={12} md={12} lg={12} xl={8}>
           {/* IssuesSummary */}
-          <IssuesSummary />
+          {/* <IssuesSummary /> */}
 
           {/* AllProjects */}
           <AllProjects />
         </Grid>
 
         <Grid item xs={12} md={12} lg={12} xl={4}>
-          {/* TeamMembers */}
-          <TeamMembers />
-
           {/* ActivityTimeline */}
           <ActivityTimeline />
+        </Grid>
+
+        <Grid item xs={12} md={12} lg={12} xl={12}>
+          {/* TeamMembers */}
+          <TeamMembers />
         </Grid>
       </Grid>
     </>

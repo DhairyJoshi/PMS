@@ -68,18 +68,20 @@ export default function HomePageAdmin() {
       >
         <Grid item xs={12} md={12} lg={12} xl={8}>
           {/* IssuesSummary */}
-          <IssuesSummary />
+          {/* <IssuesSummary /> */}
 
           {/* AllProjects */}
           <AllProjects />
         </Grid>
 
         <Grid item xs={12} md={12} lg={12} xl={4}>
-          {/* TeamMembers */}
-          <TeamMembers />
-
           {/* ActivityTimeline */}
           <ActivityTimeline />
+        </Grid>
+
+        <Grid item xs={12} md={12} lg={12} xl={12}>
+          {/* TeamMembers */}
+          <TeamMembers />
         </Grid>
       </Grid>
     </>
