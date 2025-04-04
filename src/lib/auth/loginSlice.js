@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { decodeBase64 } from "../decodeBase64";
 import Cookies from "js-cookie";
+import { admin_login, user_login } from "../api";
 
 const initialState = {
     user: null,
@@ -35,19 +36,10 @@ const loginSlice = createSlice({
 // Async action creator for fetching data
 export const fetchUserData = (email, password, desiredRole) => async (dispatch) => {
     try {
-        const endpoint = desiredRole === "Admin" ? "admin_login/" : "user_login/";
-        const response = await fetch(`${url}${endpoint}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password
-            }),
-        });
-        const data = await response.json();
-        const decodedData = decodeBase64(data);
+        const loginType = desiredRole === "Admin" ? admin_login : user_login;
+        const response = await loginType(email, password);
+
+        const decodedData = decodeBase64(response.data);
         dispatch(setUserData(decodedData));
         dispatch(setUserRole(decodedData?.data?.userrole?.rolename));
         Cookies.set('userRole', decodedData?.data?.userrole?.rolename);
