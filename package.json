@@ -28,6 +28,7 @@
     "@ramonak/react-progress-bar": "^5.2.0",
     "@reduxjs/toolkit": "^2.6.0",
     "apexcharts": "^3.49.1",
+    "axios": "^1.8.4",
     "chart.js": "^4.3.0",
     "dayjs": "^1.11.7",
     "eslint": "^8.57.0",

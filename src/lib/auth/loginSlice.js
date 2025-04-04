@@ -1,14 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { decodeBase64 } from "../decodeBase64";
 import Cookies from "js-cookie";
+import { admin_login, user_login } from "../api";
 
 const initialState = {
     user: null,
     userRole: null,
     error: null,
 };
-
-const url = 'http://122.170.109.73:7575/api/'
 
 // Create slice
 const loginSlice = createSlice({
@@ -26,57 +25,26 @@ const loginSlice = createSlice({
         },
         logout: (state) => {
             state.user = null;
-            state.userType = null;
+            state.userRole = null;
             state.error = null;
         }
     },
 });
 
-// Async action creator for fetching data
+// Async action creator for fetching data (axios version)
 export const fetchUserData = (email, password, desiredRole) => async (dispatch) => {
     try {
-        const endpoint = desiredRole === "Admin" ? "admin_login/" : "user_login/";
-        const response = await fetch(`${url}${endpoint}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password
-            }),
-        });
-        const data = await response.json();
-        const decodedData = decodeBase64(data);
+        const loginType = desiredRole === "Admin" ? admin_login : user_login;
+        const response = await loginType(email, password);
+
+        const decodedData = decodeBase64(response.data);
         dispatch(setUserData(decodedData));
         dispatch(setUserRole(decodedData?.data?.userrole?.rolename));
         Cookies.set('userRole', decodedData?.data?.userrole?.rolename);
-        // dispatch(setUserRole('Employee'));
-        // Cookies.set('userRole', 'decodedData?.data?.userrole?.rolename');
     } catch (error) {
-        dispatch(setError(error.toString()));
+        dispatch(setError(error.message || error.toString()));
     }
 };
-
-// export const fetchUserData = (username, password) => async (dispatch) => {
-//     try {
-//         const response = await fetch('https://dummyjson.com/auth/login', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify({
-//                 username: username,
-//                 password: password
-//             }),
-//         });
-//         const data = await response.json();
-//         dispatch(setUserData(data));
-//         dispatch(setUserRole('Admin'));
-//     } catch (error) {
-//         dispatch(setError(error.toString()));
-//     }
-// };
 
 export const logoutUser = () => (dispatch) => {
     localStorage.clear();
